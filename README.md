@@ -1,17 +1,13 @@
 # Diona Internship Assignment — WCB Form Documents
 
-This repository contains the submission for the Diona internship
-assignment. It implements two standalone, browser-based documents using
-**HTML, CSS, and JavaScript**, based on two sample WCB (Workers
-Compensation Board of Manitoba) PDF references supplied with the
-assignment:
+This repository contains the submission for the Diona internship assignment.
+
+It implements two standalone, browser-based documents using **HTML, CSS, and JavaScript**, based on two sample WCB (Workers Compensation Board of Manitoba) PDF references supplied with the assignment:
 
 1. **Medical & Travel Expense Request**
 2. **Worker Progress Report**
 
-Each document follows the content, structure, arrangement, and page
-layout of its corresponding PDF reference as closely as possible, and is
-built entirely with dynamic data rather than hard-coded HTML.
+Each document follows the content, structure, arrangement, and page layout of its corresponding PDF reference as closely as possible. The documents are built using dynamic data rather than hard-coded HTML.
 
 ---
 
@@ -24,7 +20,7 @@ built entirely with dynamic data rather than hard-coded HTML.
 - [Dynamic Data](#dynamic-data)
 - [Print / Save as PDF](#print--save-as-pdf)
 - [Images and Assets](#images-and-assets)
-- [Videos](#videos)
+- [Video Demonstrations](#video-demonstrations)
 - [AI Usage Disclosure](#ai-usage-disclosure)
 - [Author](#author)
 
@@ -34,15 +30,16 @@ built entirely with dynamic data rather than hard-coded HTML.
 
 ### Exercise 1 — Medical & Travel Expense Request
 
-A two-page, A4-styled document reproducing the layout of the supplied
-Medical & Travel Expense Request PDF. It includes:
+A two-page, A4-styled document reproducing the layout of the supplied Medical & Travel Expense Request PDF.
+
+It includes:
 
 - Header and logo
 - Worker and claim information
 - "Medical & Travel Expense Request" title block
 - Prescription Drugs
 - Over-the-Counter Drugs
-- Medical Supplies (Bandages, Braces, or Other Medical Supplies)
+- Medical Supplies
 - Parking for Medical Appointments
 - Mileage to Medical Appointments
 - Bus or Taxi Fare for Medical Appointments
@@ -53,8 +50,9 @@ Medical & Travel Expense Request PDF. It includes:
 
 ### Exercise 2 — Worker Progress Report
 
-A three-page, A4-styled document reproducing the layout of the supplied
-Worker Progress Report PDF. It includes:
+A three-page, A4-styled document reproducing the layout of the supplied Worker Progress Report PDF.
+
+It includes:
 
 - Header and logo
 - Worker and claim information
@@ -73,50 +71,49 @@ Worker Progress Report PDF. It includes:
 - Page numbers
 - Checkbox-based "select one" sections
 
-Each exercise lives in its own self-contained folder — `index.html`,
-`styles.css`, `data.js`, and `render.js` — so either one can be opened,
-run, and explained independently of the other.
+Each exercise lives in its own self-contained folder with its HTML, CSS, JavaScript, data, and assets.
 
 ---
 
 ## Technologies Used
 
 - HTML5
-- CSS3, including `@page` and `@media print` rules for A4-style print
-  output
-- Vanilla JavaScript (no frameworks, no build step, no backend)
+- CSS3
+- CSS `@page` and `@media print` rules for A4-style print output
+- Vanilla JavaScript
+- No frameworks
+- No build tools
+- No backend
 
 ---
 
 ## Project Structure
 
 ```text
-Diona-Assignment/
+diona-assignment/
 │
 ├── exercise-1-medical-travel-expense/
 │   ├── index.html
 │   ├── styles.css
 │   ├── data.js
 │   ├── render.js
+│   ├── demo/
+│   │   └── Medical_travel_Expense.mp4
 │   └── assets/
+│       └── wcb-logo.svg
 │
 ├── exercise-2-worker-progress-report/
 │   ├── index.html
 │   ├── styles.css
 │   ├── data.js
 │   ├── render.js
+│   ├── demo/
+│   │   └── Worker_Progress_report_demo.mp4
 │   └── assets/
-│
-├── docs/
-│   └── video-notes.md
-│
-├── videos/
-│   ├── exercise-1-walkthrough.mp4
-│   └── exercise-2-walkthrough.mp4
+│       └── wcb-logo.svg
 │
 ├── README.md
 └── AI-PROMPT-HISTORY.md
-```
 
 ---
 
@@ -187,12 +184,8 @@ sized to match where the real logo appears in the PDF.
 ## Videos
 
 - Exercise 1 walkthrough: [`videos/exercise-1-walkthrough.mp4`](videos/exercise-1-walkthrough.mp4)
-- Exercise 2 walkthrough: [`videos/exercise-2-walkthrough.mp4`](videos/exercise-2-walkthrough.mp4)
 
-Talking-point outlines for both videos are in
-[`docs/video-notes.md`](docs/video-notes.md). These are outlines to speak
-from, not scripts to read verbatim — the videos are intended to
-demonstrate genuine understanding of the requirements and the code.
+- Exercise 2 walkthrough: [`videos/exercise-2-walkthrough.mp4`](videos/exercise-2-walkthrough.mp4)
 
 ---
 
@@ -211,6 +204,11 @@ prompts used.
 
 ## Author
 
-Prithu H S
-Diona Internship Assignment Submission — September 2026
-GitHub: [your-github-username](https://github.com/your-github-username)
+**Prithu H S**
+
+Diona Internship Assignment — September 2026
+
+**GitHub:** [prithu-hs](https://github.com/prithu-hs)
+
+**Repository:** [Diona Assignment](https://github.com/prithu-hs/diona-assignment)
+```
