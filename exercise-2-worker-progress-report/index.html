@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Worker Progress Report</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <div class="toolbar">
+    <span class="label">Dataset:</span>
+    <button data-dataset="sample" class="active">Sample Data (matches PDF)</button>
+    <button data-dataset="alternate">Alternate Data (different answers)</button>
+    <button class="print-btn">Print / Save as PDF</button>
+  </div>
+
+  <!-- ===================== PAGE 1 ===================== -->
+  <div class="page">
+    <div class="page-body">
+
+      <header class="doc-header">
+        <div class="brand">
+          <img src="assets/wcb-logo.svg" alt="WCB logo" />
+          <div class="brand-text">
+            <div class="org-line1">Workers Compensation</div>
+            <div class="org-line2">Board of Manitoba</div>
+          </div>
+          <div class="contact-block">
+            333 Broadway<br />
+            Winnipeg, MB R3C 4W3<br />
+            Phone: (204) 954-4321<br />
+            Toll Free: 1-855-954-4321<br />
+            wcb.mb.ca
+          </div>
+        </div>
+        <div class="title-block">
+          <h1>Worker Progress Report</h1>
+          <div class="claim-row">
+            <div class="claim-box">Claim No. <span data-field="claimNumber"></span></div>
+            <div class="wp-box">WP</div>
+          </div>
+        </div>
+      </header>
+
+      <p class="intro-line">
+        <span class="worker-name" data-field="workerName"></span> provided the following updates in
+        relation to their claim:
+      </p>
+
+      <h2 class="section-heading">Return to Work</h2>
+
+      <div class="option-group">
+        <div class="group-label">Select one:</div>
+        <div class="option-row">
+          <div class="option"><span class="checkbox" id="chk-notMissedTime"></span><span>I have not missed time from work</span></div>
+          <div class="option"><span class="checkbox" id="chk-notReturned"></span><span>I have not returned to work</span></div>
+          <div class="option grow">
+            <span class="checkbox" id="chk-returnedOn"></span>
+            <span>I returned to work on:
+              <span class="field-underline" id="returnedOnDate"></span>
+              <span class="field-caption">Date</span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="option-group">
+        <div class="group-label">I am working:</div>
+        <div class="option-row">
+          <div class="option"><span class="checkbox" id="chk-fullDutiesRegular"></span><span>Full duties, regular hours</span></div>
+          <div class="option"><span class="checkbox" id="chk-fullDutiesReduced"></span><span>Full duties, reduced hours</span></div>
+          <div class="option"><span class="checkbox" id="chk-modifiedRegular"></span><span>Modified duties, regular hours</span></div>
+          <div class="option"><span class="checkbox" id="chk-modifiedReducedHours"></span><span>Modified duties, reduced hours</span></div>
+          <div class="option grow"><span class="checkbox" id="chk-other"></span><span>Other: <span class="field-underline" id="otherDetail" style="min-width:220px;"></span></span></div>
+        </div>
+      </div>
+
+      <div class="inline-field-row">My return to work is going:</div>
+      <div class="answer-box" id="howGoingBox"></div>
+
+      <div class="inline-field-row">
+        I expect to return to work on:
+        <span class="field-underline" id="expectedReturnDate" style="min-width:180px;"></span>
+        <span class="field-caption" style="display:inline;">Date</span>
+      </div>
+
+      <div class="inline-field-row" style="margin-top:10px;">I have the following concerns about returning to work:</div>
+      <div class="answer-box" id="concernsBox" style="min-height:70px;"></div>
+
+      <div class="inline-field-row">
+        I was most recently in contact with:
+        <span class="field-underline" id="lastContactName" style="min-width:180px;"></span>
+        on
+        <span class="field-underline" id="lastContactDate" style="min-width:140px;"></span>
+        <br />
+        <span class="field-caption" style="display:inline; margin-left:0;">(Name of employer contact)</span>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <span class="field-caption" style="display:inline;">(Date)</span>
+      </div>
+
+      <h2 class="section-heading">Recovery</h2>
+      <div class="option-group">
+        <div class="group-label">Select one:</div>
+        <div class="option-row">
+          <div class="option grow"><span class="checkbox" id="chk-notRecovered"></span><span>I have not fully recovered from my workplace injury.</span></div>
+          <div class="option grow"><span class="checkbox" id="chk-fullyRecovered"></span><span>I have fully recovered from my workplace injury.</span></div>
+        </div>
+      </div>
+
+      <div class="inline-field-row">I have provided the following comments about my recovery:</div>
+      <div class="answer-box" id="recoveryCommentsBox" style="min-height:60px;"></div>
+
+    </div>
+
+    <footer class="doc-footer">
+      <div>Worker App ID: <span data-field="workerAppId"></span></div>
+      <div class="page-number">
+        Submitted: <span data-field="submittedAt"></span><br />
+        Page 1 of 3
+      </div>
+    </footer>
+  </div>
+
+  <!-- ===================== PAGE 2 ===================== -->
+  <div class="page">
+    <div class="page-body">
+
+      <p class="pain-scale-intro">
+        I rate my current pain/discomfort on a scale of 1-10, where 1 is no pain and 10 is severe pain out of 10.
+      </p>
+      <div class="pain-scale">
+        <div class="tick" data-value="1">1</div>
+        <div class="tick" data-value="2">2</div>
+        <div class="tick" data-value="3">3</div>
+        <div class="tick" data-value="4">4</div>
+        <div class="tick" data-value="5">5</div>
+        <div class="tick" data-value="6">6</div>
+        <div class="tick" data-value="7">7</div>
+        <div class="tick" data-value="8">8</div>
+        <div class="tick" data-value="9">9</div>
+        <div class="tick" data-value="10">10</div>
+      </div>
+
+      <h2 class="section-heading">Medical Treatment</h2>
+      <div class="option-group">
+        <div class="group-label">Select one:</div>
+        <div class="option-row">
+          <div class="option grow"><span class="checkbox" id="chk-notContinuing"></span><span>I am not continuing to receive medical treatment for my workplace injury.</span></div>
+          <div class="option grow">
+            <span class="checkbox" id="chk-continuing"></span>
+            <span>I am continuing to receive medical treatment for my workplace injury from:
+              <span class="field-underline" id="providerType"></span>
+              <span class="field-caption" style="display:inline;">(Medical Provider Type)</span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="inline-field-row">
+        My last medical treatment was from
+        <span class="field-underline" id="lastTreatmentDate"></span> (Date),
+        <span class="field-underline" id="lastTreatmentProvider"></span> (Medical Provider Name)
+      </div>
+      <div class="inline-field-row">
+        My next medical treatment is from
+        <span class="field-underline" id="nextTreatmentDate"></span> (Date),
+        <span class="field-underline" id="nextTreatmentProvider"></span> (Medical Provider Name)
+      </div>
+      <div class="inline-field-row">
+        I am attending a Chiropractor or Physiotherapist
+        <span class="field-underline" id="chiroPhysioFrequency"></span> (Frequency)
+      </div>
+
+      <h2 class="section-heading">Home Exercises</h2>
+      <div class="option-group">
+        <div class="group-label">Select one:</div>
+        <div class="option-row">
+          <div class="option grow"><span class="checkbox" id="chk-notDoing"></span><span>I am not doing home exercises for my workplace injury.</span></div>
+          <div class="option grow"><span class="checkbox" id="chk-doing"></span><span>I am doing home exercises for my workplace injury.</span></div>
+        </div>
+      </div>
+      <div class="inline-field-row">List the exercises you are doing:</div>
+      <div class="answer-box" id="exercisesBox" style="min-height:55px;"></div>
+
+      <h2 class="section-heading">Other Information</h2>
+      <div class="inline-field-row">I would like to provide the following additional information about my claim/injury:</div>
+      <div class="answer-box" id="otherInfoBox" style="min-height:60px;"></div>
+
+    </div>
+
+    <footer class="doc-footer">
+      <div>Worker App ID: <span data-field="workerAppId"></span></div>
+      <div class="page-number">
+        Submitted: <span data-field="submittedAt"></span><br />
+        Page 2 of 3
+      </div>
+    </footer>
+  </div>
+
+  <!-- ===================== PAGE 3 ===================== -->
+  <div class="page">
+    <div class="page-body">
+
+      <h2 class="section-heading" style="margin-top:0;">Medication</h2>
+      <div class="option-group">
+        <div class="group-label">Select one:</div>
+        <div class="option-row">
+          <div class="option grow"><span class="checkbox" id="chk-notTaking"></span><span>I am not taking medication for my workplace injury.</span></div>
+          <div class="option grow">
+            <span class="checkbox" id="chk-taking"></span>
+            <span>I am taking medication for my workplace injury:
+              <span class="field-underline" id="medicationName" style="min-width:220px;"></span>
+              <span class="field-caption" style="display:inline;">(Name of prescribed medication)</span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="section-heading">Certification</h2>
+      <p class="certification-text">
+        I certify that the information given on this form is true, correct and complete to the best of
+        my knowledge. I agree to notify the Workers Compensation Board of Manitoba (WCB) immediately
+        once I return to any form of work and/or employment. I understand that it is an offence to
+        knowingly make a false statement to the WCB. I also understand that it is an offence to
+        withhold information from WCB which affects my entitlement to compensation (e.g., full or
+        partial recovery from injury, ability to return to work, sources of additional income, etc.).
+        I understand that refusing to co-operate with, or follow my treatment, may result in the WCB
+        reducing or suspending my benefits.
+      </p>
+
+      <div class="privacy-notice">
+        <span class="checkbox checked"></span>
+        <span>I understand that the <a href="#" onclick="return false;">Privacy Notice</a> applies to the personal information collected in this document.</span>
+      </div>
+
+    </div>
+
+    <footer class="doc-footer">
+      <div>Worker App ID: <span data-field="workerAppId"></span></div>
+      <div class="page-number">
+        Submitted: <span data-field="submittedAt"></span><br />
+        Page 3 of 3
+      </div>
+    </footer>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="render.js"></script>
+</body>
+</html>

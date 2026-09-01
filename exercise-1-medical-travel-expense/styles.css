@@ -1,0 +1,281 @@
+:root {
+  --wcb-blue: #00539b;
+  --ink: #1a1a1a;
+  --muted: #444;
+  --line: #000;
+  --page-width: 210mm;
+  --page-height: 297mm;
+  --page-padding: 14mm 14mm;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #e9e9e9;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+}
+
+/* ---------- toolbar (screen only, hidden on print) ---------- */
+.toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 10px 16px;
+  background: #ffffff;
+  border-bottom: 1px solid #ccc;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+.toolbar span.label {
+  font-weight: bold;
+  color: var(--muted);
+}
+
+.toolbar button {
+  padding: 6px 14px;
+  border: 1px solid var(--wcb-blue);
+  background: #fff;
+  color: var(--wcb-blue);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.toolbar button.active {
+  background: var(--wcb-blue);
+  color: #fff;
+}
+
+.toolbar button:hover {
+  filter: brightness(1.05);
+}
+
+.toolbar .print-btn {
+  margin-left: auto;
+  border-color: var(--muted);
+  color: var(--muted);
+}
+
+/* ---------- page ---------- */
+.page {
+  width: var(--page-width);
+  min-height: var(--page-height);
+  margin: 20px auto;
+  background: #fff;
+  padding: var(--page-padding);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-body {
+  flex: 1;
+}
+
+/* ---------- header ---------- */
+.doc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 18px;
+}
+
+.brand {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.brand img {
+  width: 46px;
+  height: 46px;
+  margin-top: 2px;
+}
+
+.brand-text .org-line1 {
+  font-weight: bold;
+  font-style: italic;
+  font-size: 15px;
+  color: var(--wcb-blue);
+  line-height: 1.15;
+}
+
+.brand-text .org-line2 {
+  font-weight: bold;
+  font-style: italic;
+  font-size: 15px;
+  color: var(--wcb-blue);
+  line-height: 1.15;
+}
+
+.contact-block {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--ink);
+  margin-left: 8px;
+}
+
+.title-block {
+  text-align: right;
+}
+
+.title-block h1 {
+  font-size: 17px;
+  margin: 0 0 8px 0;
+  line-height: 1.25;
+}
+
+.claim-box {
+  display: inline-block;
+  border: 1.5px solid var(--line);
+  padding: 4px 10px;
+  font-size: 13px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ---------- intro sentence ---------- */
+.intro-line {
+  font-size: 14px;
+  margin: 4px 0 20px 0;
+}
+
+.intro-line .worker-name {
+  color: var(--wcb-blue);
+}
+
+/* ---------- sections ---------- */
+.section {
+  margin-bottom: 16px;
+}
+
+.section table.expense-table {
+  page-break-inside: avoid;
+}
+
+.section h2 {
+  font-size: 15px;
+  margin: 0 0 8px 0;
+}
+
+.section .section-note {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11.5px;
+  margin: 0 0 8px 0;
+  line-height: 1.4;
+}
+
+/* ---------- tables ---------- */
+table.expense-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11.5px;
+}
+
+table.expense-table th,
+table.expense-table td {
+  border: 1px solid var(--line);
+  padding: 6px 8px;
+  text-align: left;
+  vertical-align: top;
+}
+
+table.expense-table th {
+  font-weight: bold;
+  background: #fff;
+}
+
+table.expense-table td {
+  color: var(--wcb-blue);
+}
+
+table.expense-table td.no-data {
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* ---------- privacy notice (page 2) ---------- */
+.privacy-notice {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-top: 1px solid #999;
+  padding-top: 14px;
+  margin-top: 6px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+}
+
+.privacy-notice .checkbox {
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid var(--line);
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  line-height: 1;
+}
+
+.privacy-notice a {
+  color: var(--wcb-blue);
+}
+
+/* ---------- footer ---------- */
+.doc-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  color: var(--ink);
+  border-top: 1px solid #ccc;
+  padding-top: 8px;
+  margin-top: 24px;
+}
+
+.doc-footer .page-number {
+  text-align: right;
+}
+
+/* ---------- print ---------- */
+@media print {
+  .toolbar {
+    display: none;
+  }
+
+  body {
+    background: #fff;
+  }
+
+  .page {
+    margin: 0;
+    box-shadow: none;
+    width: var(--page-width);
+    min-height: var(--page-height);
+  }
+
+  /* Margin lives on .page's own padding only. Do NOT also set a margin
+     here — @page margin + .page padding double up and push content onto
+     an unwanted extra physical page. */
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  .page + .page {
+    page-break-before: always;
+  }
+}

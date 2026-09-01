@@ -1,0 +1,342 @@
+:root {
+  --wcb-blue: #00539b;
+  --ink: #1a1a1a;
+  --muted: #444;
+  --line: #000;
+  --page-width: 210mm;
+  --page-height: 297mm;
+  --page-padding: 14mm 14mm;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #e9e9e9;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+}
+
+.toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 10px 16px;
+  background: #fff;
+  border-bottom: 1px solid #ccc;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+.toolbar span.label {
+  font-weight: bold;
+  color: var(--muted);
+}
+
+.toolbar button {
+  padding: 6px 14px;
+  border: 1px solid var(--wcb-blue);
+  background: #fff;
+  color: var(--wcb-blue);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.toolbar button.active {
+  background: var(--wcb-blue);
+  color: #fff;
+}
+
+.toolbar .print-btn {
+  margin-left: auto;
+  border-color: var(--muted);
+  color: var(--muted);
+}
+
+.page {
+  width: var(--page-width);
+  min-height: var(--page-height);
+  margin: 20px auto;
+  background: #fff;
+  padding: var(--page-padding);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+}
+
+.page-body {
+  flex: 1;
+}
+
+/* ---------- header (page 1 only) ---------- */
+.doc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 14px;
+}
+
+.brand {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.brand img {
+  width: 46px;
+  height: 46px;
+  margin-top: 2px;
+}
+
+.brand-text .org-line1,
+.brand-text .org-line2 {
+  font-weight: bold;
+  font-style: italic;
+  font-size: 15px;
+  color: var(--wcb-blue);
+  line-height: 1.15;
+}
+
+.contact-block {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  line-height: 1.5;
+  margin-left: 8px;
+}
+
+.title-block {
+  text-align: right;
+}
+
+.title-block h1 {
+  font-size: 16px;
+  font-weight: normal;
+  margin: 4px 0 8px 0;
+}
+
+.claim-row {
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.claim-box,
+.wp-box {
+  display: inline-block;
+  border: 1.5px solid var(--line);
+  padding: 4px 10px;
+  font-size: 12px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.intro-line {
+  font-size: 14px;
+  margin: 4px 0 18px 0;
+}
+
+.intro-line .worker-name {
+  color: var(--wcb-blue);
+}
+
+/* ---------- section headings ---------- */
+.section-heading {
+  font-size: 15px;
+  margin: 14px 0 8px 0;
+}
+
+/* ---------- boxed option groups ---------- */
+.option-group {
+  border: 1.5px solid var(--line);
+  padding: 8px 12px;
+  margin-bottom: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12.5px;
+}
+
+.option-group .group-label {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.option-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+  row-gap: 10px;
+}
+
+.option {
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  min-width: 150px;
+}
+
+.option.grow {
+  flex: 1 1 260px;
+}
+
+.checkbox {
+  width: 14px;
+  height: 14px;
+  border: 1.5px solid var(--line);
+  flex: none;
+  margin-top: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  line-height: 1;
+}
+
+.checkbox.checked::after {
+  content: "\2713";
+}
+
+.field-underline {
+  display: inline-block;
+  min-width: 140px;
+  border-bottom: 1px solid var(--line);
+  color: var(--wcb-blue);
+  padding: 0 4px 1px 4px;
+}
+
+.field-caption {
+  display: block;
+  font-size: 10px;
+  color: var(--muted);
+  text-align: center;
+  margin-top: 1px;
+}
+
+/* ---------- free-text boxed answers ---------- */
+.answer-box {
+  border: 1.5px solid var(--line);
+  min-height: 40px;
+  padding: 6px 10px;
+  margin-bottom: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12.5px;
+  color: var(--wcb-blue);
+}
+
+.answer-box.empty {
+  color: var(--muted);
+  font-style: italic;
+}
+
+.inline-field-row {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12.5px;
+  margin: 3px 0 10px 0;
+}
+
+/* ---------- pain scale ---------- */
+.pain-scale-intro {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12.5px;
+  margin: 4px 0 10px 0;
+}
+
+.pain-scale {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.pain-scale .tick {
+  width: 26px;
+  height: 26px;
+  border: 1.5px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+}
+
+.pain-scale .tick.selected {
+  background: var(--wcb-blue);
+  color: #fff;
+  font-weight: bold;
+}
+
+/* ---------- certification ---------- */
+.certification-text {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.privacy-notice {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  border-top: 1px solid #999;
+  padding-top: 12px;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.privacy-notice a {
+  color: var(--wcb-blue);
+}
+
+/* ---------- footer ---------- */
+.doc-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  border-top: 1px solid #ccc;
+  padding-top: 8px;
+  margin-top: 20px;
+}
+
+.doc-footer .page-number {
+  text-align: right;
+}
+
+/* ---------- print ---------- */
+@media print {
+  .toolbar {
+    display: none;
+  }
+
+  body {
+    background: #fff;
+  }
+
+  .page {
+    margin: 0;
+    box-shadow: none;
+    width: var(--page-width);
+    min-height: var(--page-height);
+  }
+
+  /* Margin lives on .page's own padding only. Do NOT also set a margin
+     here — @page margin + .page padding double up and push content onto
+     an unwanted extra physical page. */
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  .page + .page {
+    page-break-before: always;
+  }
+
+  .option-group,
+  .answer-box {
+    page-break-inside: avoid;
+  }
+}
